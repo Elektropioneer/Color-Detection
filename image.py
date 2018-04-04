@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from heapq import nlargest
 
 x = 5   # variable for color comparison
 
@@ -10,23 +9,13 @@ green = False
 black = False
 yellow = False
 
-array1 = ['orange, black, green']   #  all
-array2 = ['yellow, black, blue']    #      posible
-array3 = ['blue, green, orange']    #             color
-array4 = ['yellow, green, black']   #                 combinations
-array5 = ['black, yellow, orange']
-array6 = ['green, yellow, blue']
-array7 = ['blue, orange, black']
-array8 = ['green, orange, yellow']
-array9 = ['black, blue, green']
-array10 = ['orange, blue, yellow']
 
 temp = []   #arrays for sorting
 temp2 = []
 temp3 = []
 temp4 = []
 
-img = cv2.imread('image_crop.jpg', 1)  #reading the img in
+img = cv2.imread('image.jpg', 1)  #reading the img in
 
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)  #transfering the img from bgr to hsv
 
@@ -65,24 +54,24 @@ x_y = cv2.countNonZero(mask)
 
 if(x_o > x):
     temp.append(x_o)
-    print "orange"
-    print x_o
+    #print "orange"
+    #print x_o
 if(x_b > x):
     temp.append(x_b)
-    print "blue"
-    print x_b
+    #print "blue"
+    #print x_b
 if(x_g > x):
     temp.append(x_g)
-    print "green"
-    print x_g
+    #print "green"
+    #print x_g
 if(x_blc > x):
     temp.append(x_blc)
-    print "black"
-    print x_blc
+    #print "black"
+    #print x_blc
 if(x_y > x):
     temp.append(x_y)
-    print "yellow"
-    print x_y
+    #print "yellow"
+    #print x_y
 
 temp2.extend(tuple(temp))
 
@@ -92,9 +81,9 @@ temp3 = temp2[::-1]
 
 temp4.extend(temp3[:3])
 
-print temp2
-print temp3
-print temp4
+#print temp2
+#print temp3
+#print temp4
 
 if(x_o in temp4):
     orange = True
@@ -107,37 +96,47 @@ if(x_blc in temp4):
 if(x_y in temp4):
     yellow = True
 
+#  function call:
+#   komb = image.kamera
+#   {set the kombination into a variable and then further...}
+#
+#
+def kamera (k):
+   return k
 
 #Printing the combination(array) detected
+    
 if(orange == True & black == True & green == True):
-    print(array1)
+    kamera(1)
 
 elif(yellow == True & black == True & blue == True):
-    print(array2)
+    kamera(2)
 
 elif(blue == True & green == True & orange == True):
-    print(array3)
+    kamera(3)
 
 elif(yellow == True & green == True & black == True):
-    print(array4)
+    kamera(4)
 
 elif(black == True & yellow == True & orange == True):
-    print(array5)
+    kamera(5)
 
 elif(green == True & yellow == True & blue == True):
-    print(array6)
+    kamera(6)
 
 elif(blue == True & orange == True & black == True):
-    print(array7)
+    kamera(7)
 
 elif(green == True & orange == True & yellow == True):
-    print(array8)
+    kamera(8)
 
 elif(black == True & blue == True & green == True):
-    print(array9)
+    kamera(9)
 
 elif(orange == True & blue == True & yellow == True):
-    print(array10)
+    kamera(10)
+    
+    
 
 
 
